@@ -17,6 +17,7 @@
         <NewsFilter :loading="loading" v-model="section" @fetch="fetchNews" />
         <NewsList  :posts="posts" />
       </div>
+
     </Layout>
   </v-app>
 </template>
