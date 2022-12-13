@@ -28,9 +28,7 @@ import Layout from "@/components/Layout"
 import NewsFilter from "@/components/NewsFilter"
 import NewsList from "@/components/NewsList";
 
-
 const api = "4X1ZSHe0MHm931uxAilMIGC0wiZJ8kry";
-
 
 export default {
   components: {
@@ -51,7 +49,7 @@ export default {
   methods :{
     extractImage(post){
       const defaultImg ={
-        url: "http://placehold.it/210x140?text=N/A",
+        url: "https://placehold.it/210x140?text=N/A",
         caption: post.title,
       }
       if(!post.multimedia){
@@ -68,6 +66,8 @@ export default {
         }
         const url = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${api}`;
         const response = await axios.get(url);
+        // console.log(response);
+        // const response = await axios.get(url).then(res=>{}).catch(err=>error = err);
         const results = response.data.results;
         console.log(results)
         this.posts = results.map(post => ({
